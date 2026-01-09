@@ -1,4 +1,3 @@
-import { ptSansCaption } from "@/styles/fonts";
 import Image from "next/image";
 
 const customerStories = [
@@ -25,7 +24,7 @@ export function CustommerStorySection(){
   return(
     <section className="container py-8 md:py-10">
       <div className="flex flex-col items-center gap-12">
-        <h2 className={`${ptSansCaption.className} text-balance text-center text-heading-xl text-gray-100`}>
+        <h2 className="font-sans text-balance text-center text-heading-xl text-gray-100">
           Quem utiliza, aprova!
         </h2>
 

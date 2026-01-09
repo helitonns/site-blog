@@ -1,4 +1,3 @@
-import { ptSansCaption } from "@/styles/fonts";
 import { ArrowRight, Store } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -12,7 +11,7 @@ export function CallToAction(){
           <div className="p-4 bg-cyan-300 w-fit rounded-full -mt-28">
             <Store className="text-cyan-100"/>
           </div>
-          <h2 className={`${ptSansCaption.className} text-gray-100 text-heading-xl text-balance`}>Crie uma loja online e inicie suas vendas ainda hoje</h2>
+          <h2 className={"font-sans text-gray-100 text-heading-xl text-balance"}>Crie uma loja online e inicie suas vendas ainda hoje</h2>
           <Button className="w-fit mt-6" asChild>
             <Link href={"/criar-loja"}>
               Criar loja grátis
