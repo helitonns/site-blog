@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactStrictMode: true,
+
+  // 👇 informa explicitamente que o Turbopack está ok
+  turbopack: {},
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
