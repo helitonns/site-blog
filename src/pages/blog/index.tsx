@@ -1,3 +1,4 @@
+import { Search } from "@/components/search";
 
 export default function BlogPage(){
 
@@ -14,8 +15,11 @@ export default function BlogPage(){
               Dicas e estratégias para impulsionar seu negócio
             </h1>
           </div>
+      
+          <Search />
         </div>
       </header>
+
     </div>
   );
 }
