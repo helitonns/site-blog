@@ -9,7 +9,7 @@ type LayoutProps = {
 export function Layout({children} : LayoutProps){
 
   return(
-    <div className={`${inter.className} relative flex flex-col min-h-screen dark `}> 
+    <div className={`${inter.className} relative flex flex-col min-h-screen bg-gray-700`}> 
       <Header />
       <main className="flex flex-col flex-1">
         {children}
