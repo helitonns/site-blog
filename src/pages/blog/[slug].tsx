@@ -18,8 +18,8 @@ export default function POstPage(){
 
   const { shareButtons } = useShare({
     url: postUrl,
-    title: post.title,
-    text: post.description
+    title: post?.title,
+    text: post?.description
   });
 
   return(
@@ -73,7 +73,7 @@ export default function POstPage(){
           </article>
 
           <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700 p-4 md:-6">
+            <div className="rounded-lg bg-gray-700">
               <h2 className="mb-4 text-heading-xs text-gray-100">Compartilhar</h2>
 
               <div className="space-y-3 flex flex-col">
