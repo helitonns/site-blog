@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/avatar";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
@@ -7,7 +8,8 @@ import { useRouter } from "next/router";
 export default function POstPage(){
   const router = useRouter();
   const slug = router.query.slug as string;
-  const post = allPosts.find((p)=> p.slug.toLocaleLowerCase().includes(slug.toLocaleLowerCase()));
+  const post = allPosts.find((p)=> p.slug.toLocaleLowerCase() === slug?.toLocaleLowerCase())!;
+  const publishedDate = new Date(post?.date).toLocaleDateString("pt-BR");
 
   return(
     <main className="mt-32 text-gray-100">
@@ -38,6 +40,20 @@ export default function POstPage(){
               className="object-cover"
             />
           </figure>
+
+          <header className="p-4 md:p-6 lg:p-12 pb-0">
+            <h1 className="mb-6 text-balance text-heading-lg md:text-heading-xl lg:text-heading-xl">
+              {post?.title}
+            </h1>
+
+            <Avatar.Container>
+              <Avatar.Image src={post?.author.avatar.trim()} alt={post?.author.name}/>
+              <Avatar.Content>
+                <Avatar.Title>{post?.author.name}</Avatar.Title>
+                <Avatar.Description>Publicado em <time dateTime={publishedDate}>{publishedDate}</time></Avatar.Description>
+              </Avatar.Content>
+            </Avatar.Container>
+          </header>
         </article>
       </div>
 

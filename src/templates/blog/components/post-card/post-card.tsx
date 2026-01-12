@@ -30,7 +30,7 @@ export function PostCard({slug, title, description, image, date, author} : PostC
             alt={title}
             width={288}
             height={144}
-            className="w-full h-40 object-cover object-center rounded-t-lg"
+            className="w-full h-40 object-cover object-center rounded-lg"
           />
         </div>
 
