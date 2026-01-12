@@ -49,7 +49,7 @@ export default function POstPage(){
               </h1>
 
               <Avatar.Container>
-                <Avatar.Image src={post?.author.avatar.trim()} alt={post?.author.name} />
+                <Avatar.Image src={post?.author.avatar.trim()} alt={post?.author.name} size="sm"/>
                 <Avatar.Content>
                   <Avatar.Title>{post?.author.name}</Avatar.Title>
                   <Avatar.Description>Publicado em <time dateTime={publishedDate}>{publishedDate}</time></Avatar.Description>
@@ -58,7 +58,7 @@ export default function POstPage(){
             </header>
 
             <div className="prose prove-invert max-w-none px-4 mt-12 md:px-6 lg:px-12">
-              <Markdown content={post.body.raw} />
+              <Markdown content={post?.body.raw} />
             </div>
           </article>
         </div>

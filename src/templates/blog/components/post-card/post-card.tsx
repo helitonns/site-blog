@@ -1,3 +1,4 @@
+import { Avatar } from "@/components/avatar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,15 +40,10 @@ export function PostCard({slug, title, description, image, date, author} : PostC
           <p className="text-gray-300 text-body-sm text-justify line-clamp-3 ">{description}</p>
 
           <div className="flex items-center gap-3 border-t border-gray-400 py-4">
-            <div className="relative w-5 h-5 md:w-6 md:h-6 overflow-hidden rounded-full border border-blue-200">
-              <Image
-                src={author?.avatar}
-                alt=""
-                fill
-                className="object-cover rounded-md"
-                />
-            </div>
-            <span className="text-body-sm text-gray-300">{author?.name}</span>
+            <Avatar.Container>
+              <Avatar.Image src={author.avatar} alt={author.name} size="sm"/>
+              <Avatar.Description>{author?.name}</Avatar.Description>
+            </Avatar.Container>
           </div>
         </div>
 
