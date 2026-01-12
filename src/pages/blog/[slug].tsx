@@ -1,6 +1,7 @@
 import { Avatar } from "@/components/avatar";
 import { Markdown } from "@/components/markdown";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
@@ -61,6 +62,23 @@ export default function POstPage(){
               <Markdown content={post?.body.raw} />
             </div>
           </article>
+
+          <aside className="space-y-6">
+            <div className="rounded-lg bg-gray-700 p-4 md:-6">
+              <h2 className="mb-4 text-heading-xs text-gray-100">Compartilhar</h2>
+
+              <div className="space-y-3 flex flex-col">
+                {Array.from({length: 4}).map((_, index)=> (
+                  <Button 
+                    key={`compartilhar-${index}`}
+                    variant="outline"
+                  />
+                ))
+
+                }
+              </div>
+            </div>
+          </aside>
         </div>
      </div>
     </main>
