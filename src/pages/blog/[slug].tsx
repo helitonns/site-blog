@@ -72,6 +72,7 @@ export default function POstPage(){
                   <Button 
                     key={`compartilhar-${index}`}
                     variant="outline"
+                    className="w-full justify-start gap-2"
                   />
                 ))
 
