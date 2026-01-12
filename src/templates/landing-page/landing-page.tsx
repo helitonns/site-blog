@@ -3,7 +3,7 @@ import { CallToAction, CustommerStorySection, FeatureSection, HeroSection, Suppo
 export function LadingPage() {
 
   return (
-    <article className={`flex flex-col min-h-screen bg-zinc-50 dark:bg-black`}>
+    <article className={`flex flex-col min-h-screen dark:bg-black bg-gray-700`}>
       <HeroSection />
       <FeatureSection />
       <SupportSection />
