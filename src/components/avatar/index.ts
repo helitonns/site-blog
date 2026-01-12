@@ -10,5 +10,4 @@ export const Avatar = {
   Image: AvatarImage,
   Description: AvatarDescription,
   Title: AvatarTitle
-
 }
