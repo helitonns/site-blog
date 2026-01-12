@@ -6,14 +6,16 @@ export type ShareConfig = {
   text?: string
 }
 
-export const SOCIAL_PROVIDRES = {
+export type SocialProvider = "linkedin" | "facebook" | "slack" | "twitter" | "threads";
+
+export const SOCIAL_PROVIDERS = {
   linkedin: {
     name: "LinkedIn",
     icon: <Linkedin className="w-4 h-4"/>,
     shareUrl: (config: ShareConfig) =>`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(config.url)}`,
   },
   facebook: {
-    name: "LinkedIn",
+    name: "Facebook",
     icon: <Facebook className="w-4 h-4"/>,
     shareUrl: (config: ShareConfig) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(config.url)}`,
   },
