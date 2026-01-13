@@ -1,4 +1,5 @@
 import { inter } from "@/styles/fonts";
+import { CallToAction } from "@/templates/landing-page/sections";
 import { Footer } from "./footer";
 import { Header } from "./header";
 
@@ -14,6 +15,7 @@ export function Layout({children} : LayoutProps){
       <main className="flex flex-col flex-1">
         {children}
       </main>
+      <CallToAction />
       <Footer />
     </div>
   );

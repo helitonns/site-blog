@@ -1,4 +1,4 @@
-import { CallToAction, CustommerStorySection, FeatureSection, HeroSection, SupportSection } from "@/templates/landing-page/sections";
+import { CustommerStorySection, FeatureSection, HeroSection, SupportSection } from "@/templates/landing-page/sections";
 
 export function LadingPage() {
 
@@ -8,7 +8,6 @@ export function LadingPage() {
       <FeatureSection />
       <SupportSection />
       <CustommerStorySection />
-      <CallToAction />
     </article>
   );
 }
