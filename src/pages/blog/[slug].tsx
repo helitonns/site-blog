@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function POstPage(){
+export default function PostPage(){
   const router = useRouter();
   const slug = router.query.slug as string;
   const post = allPosts.find((p)=> p.slug.toLocaleLowerCase() === slug?.toLocaleLowerCase())!;
@@ -100,3 +100,33 @@ export default function POstPage(){
     </main>
   );
 }
+
+// export const getStaticPaths = (async ()=> {
+//   const sortedPosts = allPosts.sort((a, b)=> new Date(b.date).getTime() - new Date(a.date).getTime());
+//   const recentPosts = sortedPosts.slice(0,5);
+//   const paths = recentPosts.map((post)=> ({
+//     params: {slug: post.slug}
+//   }));
+
+//   return {
+//     paths,
+//     fallback: "blocking"
+//   }
+// }) satisfies GetStaticPaths;
+
+// export const getStaticProps = (async (context)=> {
+//   const { slug } = context.params as { slug: string };
+//   const post = allPosts.find((post) => post.slug === slug);
+
+//   if (!post) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   return {
+//     props: {
+//       post,
+//     },
+//   };
+// }) satisfies GetStaticProps;
