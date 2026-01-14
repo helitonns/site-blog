@@ -1,0 +1,35 @@
+import { Button } from "@/components/ui/button";
+import { FileQuestion, Search } from "lucide-react";
+import Link from "next/link";
+
+export default function NotFound(){
+
+  return(
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
+      <div className="max-w-md w-full text-center">
+        <FileQuestion size={64} className="text-cyan-100 mx-auto mb-6" />
+      </div>
+      
+      <div className="text-center relative mb-3 font-sans">
+        <span className="text-8xl font-bold text-gray-100 inline-block transform -rotate-12 -translate-y-2 -translate-x-1">4</span>
+        <span className="text-8xl font-bold text-gray-100 inline-block">0</span>
+        <span className="text-8xl font-bold text-gray-100 inline-block">4</span>
+        <h3 className="text-xl text-gray-100 block mt-4">Página não encontrada!!!</h3>
+      </div>
+
+      <div className="mt-12 flex justify-center gap-4">
+        <Button asChild>
+          <Link href={"/"}>Home</Link>
+        </Button>
+
+        <Button variant="secondary" asChild>
+          <Link href={"/blog?q="}>
+            <Search size={16} />
+            Pesquisar posts
+          </Link>
+        </Button>
+      </div>
+      
+    </div>
+  );
+}

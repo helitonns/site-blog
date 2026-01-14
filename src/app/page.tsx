@@ -1,7 +1,8 @@
+import { LadingPage } from "@/templates/landing-page";
 
 export default function HomePage(){
 
   return(
-    <h1 className="mt-50 text-gray-100">TESTE</h1>
+    <LadingPage />
   );
 }
