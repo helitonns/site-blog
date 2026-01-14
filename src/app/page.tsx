@@ -20,9 +20,7 @@ export const metadata: Metadata = {
         alt: 'Site.Set',
       },
     ],
-
   }
-
 }
 
 export default function HomePage(){
