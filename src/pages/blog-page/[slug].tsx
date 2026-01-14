@@ -1,26 +1,30 @@
 import { Avatar } from "@/components/avatar";
 import { Markdown } from "@/components/markdown";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
-import { useShare } from "@/hooks";
-import { allPosts } from "contentlayer/generated";
+import { Post } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
-export default function PostPage(){
-  const router = useRouter();
-  const slug = router.query.slug as string;
-  const post = allPosts.find((p)=> p.slug.toLocaleLowerCase() === slug?.toLocaleLowerCase())!;
-  const publishedDate = new Date(post?.date).toLocaleDateString("pt-BR");
+export type PostPageProps = {
+  post: Post;
+};
 
-  const postUrl = `https://site.set/blog/${slug}`
+export default function PostPage({ post }: PostPageProps){
+  const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR');
+  const postUrl = `https://site.set/blog/${post.slug}`;
+  
+  // const router = useRouter();
+  // const slug = router.query.slug as string;
+  // const post = allPosts.find((p)=> p.slug.toLocaleLowerCase() === slug?.toLocaleLowerCase())!;
+  // const publishedDate = new Date(post?.date).toLocaleDateString("pt-BR");
 
-  const { shareButtons } = useShare({
-    url: postUrl,
-    title: post?.title,
-    text: post?.description
-  });
+  // const postUrl = `https://site.set/blog/${slug}`
+
+  // const { shareButtons } = useShare({
+  //   url: postUrl,
+  //   title: post?.title,
+  //   text: post?.description
+  // });
 
   return(
     <main className="py-20 text-gray-100">
@@ -72,7 +76,7 @@ export default function PostPage(){
             </div>
           </article>
 
-          <aside className="space-y-6">
+          {/* <aside className="space-y-6">
             <div className="rounded-lg bg-gray-700">
               <h2 className="hidden md:block mb-4 text-heading-xs text-gray-100">Compartilhar</h2>
 
@@ -94,7 +98,7 @@ export default function PostPage(){
                 }
               </div>
             </div>
-          </aside>
+          </aside> */}
         </div>
      </div>
     </main>
