@@ -1,6 +1,7 @@
 import { Avatar } from "@/components/avatar";
 import { Markdown } from "@/components/markdown";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { PostShare } from "@/templates/blog/components/post-share";
 import { Post } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,19 +13,6 @@ export type PostPageProps = {
 export default function PostPage({ post }: PostPageProps){
   const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR');
   const postUrl = `https://site.set/blog/${post.slug}`;
-  
-  // const router = useRouter();
-  // const slug = router.query.slug as string;
-  // const post = allPosts.find((p)=> p.slug.toLocaleLowerCase() === slug?.toLocaleLowerCase())!;
-  // const publishedDate = new Date(post?.date).toLocaleDateString("pt-BR");
-
-  // const postUrl = `https://site.set/blog/${slug}`
-
-  // const { shareButtons } = useShare({
-  //   url: postUrl,
-  //   title: post?.title,
-  //   text: post?.description
-  // });
 
   return(
     <main className="py-20 text-gray-100">
@@ -76,61 +64,14 @@ export default function PostPage({ post }: PostPageProps){
             </div>
           </article>
 
-          {/* <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700">
-              <h2 className="hidden md:block mb-4 text-heading-xs text-gray-100">Compartilhar</h2>
-
-              <div className="flex justify-between md:flex-col gap-2">
-                {shareButtons.map((provider)=> (
-                  <Button 
-                    onClick={()=> provider.action()}
-                    key={`compartilhar-${provider.provider}`}
-                    variant="outline"
-                    className="w-fit md:w-full justify-start gap-2"
-                  >
-                    {provider.icon}
-                    <span className="hidden md:block">
-                      {provider.name}
-                    </span>
-                  </Button>
-                ))
-
-                }
-              </div>
-            </div>
-          </aside> */}
+          <PostShare 
+            url={postUrl} 
+            title={post.title}
+            description={post.description}
+          />
         </div>
      </div>
     </main>
   );
 }
 
-// export const getStaticPaths = (async ()=> {
-//   const sortedPosts = allPosts.sort((a, b)=> new Date(b.date).getTime() - new Date(a.date).getTime());
-//   const recentPosts = sortedPosts.slice(0,5);
-//   const paths = recentPosts.map((post)=> ({
-//     params: {slug: post.slug}
-//   }));
-
-//   return {
-//     paths,
-//     fallback: "blocking"
-//   }
-// }) satisfies GetStaticPaths;
-
-// export const getStaticProps = (async (context)=> {
-//   const { slug } = context.params as { slug: string };
-//   const post = allPosts.find((post) => post.slug === slug);
-
-//   if (!post) {
-//     return {
-//       notFound: true,
-//     };
-//   }
-
-//   return {
-//     props: {
-//       post,
-//     },
-//   };
-// }) satisfies GetStaticProps;
